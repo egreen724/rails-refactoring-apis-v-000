@@ -1,7 +1,7 @@
 class RepositoriesController < ApplicationController
   def index
     github = GithubService.new
-    github.authenticate!(ENV['GITHUB_CLIENT_ID'], ENV['GITHUB_SECRET'], params[:code])
+    # github.authenticate!(ENV['GITHUB_CLIENT_ID'], ENV['GITHUB_SECRET'], params[:code])
     binding.pry
     @repos_array = github.get_repos
 
