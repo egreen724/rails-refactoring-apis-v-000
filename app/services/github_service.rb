@@ -21,6 +21,7 @@ class GithubService
 
   def get_repos
     response = Faraday.get "https://api.github.com/user/repos", {}, {'Authorization' => "token #{self.access_token}", 'Accept' => 'application/json'}
+    binding.pry 
     array = JSON.parse(response.body)
     array.map{ |repo| GithubRepo.new(repo)  }
 
