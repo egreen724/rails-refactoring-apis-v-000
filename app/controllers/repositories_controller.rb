@@ -8,6 +8,7 @@ class RepositoriesController < ApplicationController
 
   def create
     github = GithubService.new
+    github.access_token = session[:token]
     github.create_repo(params[:name])
     redirect_to '/'
   end
